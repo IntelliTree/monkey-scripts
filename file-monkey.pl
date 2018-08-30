@@ -73,7 +73,7 @@ die "Invalid root \"$root\"\n"
 $? == 0 or die "mkdir failed";
 $root= realpath($root);
 die "Cowardly refusing to run in \"$root\" because it isn't 3 directories deep\n"
-	unless 2 < scalar($root =~ m|(/)|g);
+	unless 2 < scalar(()= $root =~ m|(/)|g);
 chdir $root or die "Can't chdir to $root: $!";
 
 if ($chroot) {
