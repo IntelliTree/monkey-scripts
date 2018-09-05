@@ -76,6 +76,7 @@ $root= realpath($root);
 die "Cowardly refusing to run in \"$root\" because it isn't 3 directories deep\n"
 	unless 2 < scalar(()= $root =~ m|(/)|g);
 chdir $root or die "Can't chdir to $root: $!";
+warn "Running from '$root'\n";
 
 if ($chroot) {
 	umask 0007;
