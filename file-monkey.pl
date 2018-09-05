@@ -277,8 +277,7 @@ sub create_dir {
 
 sub rm_dir {
 	my $dir= shift;
-	`rm -rf '$dir'`;
-	$? == 0 or die "rm $dir failed";
+	system('rm','-rf','$dir') == 0 or die "rm $dir failed";
 	refresh_tree_stats();
 	1;
 }
